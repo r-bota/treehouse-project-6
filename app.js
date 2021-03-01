@@ -34,6 +34,14 @@ function addPhraseToDisplay(arr) {
    
 };
  
-function checkLetter() { }
+function checkLetter(btn) { 
+    const letters = document.getElementsByClassName("letter")
+    for (let i = 0; i < letters.length; i++) {
+        if (btn === letters[i]) {
+            
+        }
+    }
+
+}
 
 addPhraseToDisplay(phraseArray);
