@@ -1,6 +1,9 @@
 var qwerty = document.getElementById("qwerty");
 var phrase = document.getElementById("phrase");
 var missed = 0;
+var hearts = document.querySelectorAll(".tries img");
+
+
 
 //start button to hide overlay
 overlay = document.getElementById("overlay");
@@ -31,7 +34,6 @@ function addPhraseToDisplay(arr) {
 };
 
 
-
 const keyboard = document.querySelectorAll(".keyrow button");
 for (let i = 0; i < keyboard.length; i++) {
     keyboard[i].addEventListener("click", function () {
@@ -41,6 +43,7 @@ for (let i = 0; i < keyboard.length; i++) {
         checkLetter(btn);
         if (checkLetter(btn) !== btn) {
             missed += 1;
+            hearts[missed - 1].src = "images/lostHeart.png";
         }
     });
 }
