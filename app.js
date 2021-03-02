@@ -40,24 +40,28 @@ const keyboard = document.querySelectorAll(".keyrow button");
 keyboard.forEach(item => {
     item.addEventListener("click", event => {
         item.className = "chosen";
+        item.disabled = "true";
         btn = item.textContent;
         checkLetter(btn);
+        if (checkLetter(btn) === btn) {
+            
+        } else {
+            missed += 1;
+        }
     })
 })
 
-
 function checkLetter(btn) {
     const letters = document.getElementsByClassName("letter");
+    var match = null;
     for (let i = 0; i < letters.length; i++) {
         if (btn === letters[i].textContent) {
-            console.log(btn)
-            letters[i].className += " show"
+            letters[i].className = "letter show";
+            match = btn;
         }
     }
-
- 
+    return match;
 }
-
 
 
 addPhraseToDisplay(phraseArray);
