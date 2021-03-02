@@ -45,19 +45,6 @@ for (let i = 0; i < keyboard.length; i++) {
     });
 }
 
-// keyboard.forEach(item => {
-//     item.addEventListener("click", event => {
-//         item.className = "chosen";
-//         item.disabled = "true";
-//         btn = item.textContent;
-//         checkLetter(btn);
-//         if (checkLetter(btn) === btn) {
-
-//         } else {
-//             missed += 1;
-//         }
-//     })
-// })
 
 function checkLetter(btn) {
     const letters = document.getElementsByClassName("letter");
