@@ -37,19 +37,31 @@ function addPhraseToDisplay(arr) {
 
 
 const keyboard = document.querySelectorAll(".keyrow button");
-keyboard.forEach(item => {
-    item.addEventListener("click", event => {
-        item.className = "chosen";
-        item.disabled = "true";
-        btn = item.textContent;
+for (let i = 0; i < keyboard.length; i++) {
+    keyboard[i].addEventListener("click", function () {
+        keyboard[i].className = "chosen";
+        keyboard[i].disabled = "true";
+        btn = keyboard[i].textContent;
         checkLetter(btn);
-        if (checkLetter(btn) === btn) {
-            
-        } else {
+        if (checkLetter(btn) !== btn) {
             missed += 1;
         }
-    })
-})
+    });
+}
+
+// keyboard.forEach(item => {
+//     item.addEventListener("click", event => {
+//         item.className = "chosen";
+//         item.disabled = "true";
+//         btn = item.textContent;
+//         checkLetter(btn);
+//         if (checkLetter(btn) === btn) {
+            
+//         } else {
+//             missed += 1;
+//         }
+//     })
+// })
 
 function checkLetter(btn) {
     const letters = document.getElementsByClassName("letter");
