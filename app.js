@@ -7,11 +7,14 @@ var hearts = document.querySelectorAll(".tries img");
 //start button to hide overlay
 overlay = document.getElementById("overlay");
 startButton = document.querySelector(".btn__reset");
-startButton.addEventListener("click", () => { overlay.style.display = "none" });
+startButton.addEventListener("click", () => {
+    overlay.style.display = "none"
+    
+});
 
 
 //phrases for players to guess
-const phrases = ["first", "second", "third", "fourth", "fifth"];
+const phrases = ["first", "second", "third", "fourth", "fifth one"];
 
 //this function forms an array in "phraseLetters" from the letters of a string randomly
 //selected from the array passed in as arr
@@ -27,7 +30,11 @@ function addPhraseToDisplay(arr) {
     for (let i = 0; i < arr.length; i++) {
         const li = document.createElement("li")
         var letters = document.createTextNode(arr[i]);
-        li.className = "letter";
+        if (arr[i] === " ") {
+            li.className = "space";
+        } else {
+            li.className = "letter";
+        }
         li.appendChild(letters);
         phrase.appendChild(li);
     }
@@ -71,7 +78,21 @@ function checkWin() {
     if (liLetter.length === liShow.length) {
         overlay.className = "win";
         overlay.style.display = "flex";
-        console.log("Fuck")
+        reset()
+    }
+    if (missed === 4) {
+        overlay.className = "lose";
+        overlay.style.display = "flex";
+        reset()
     }
 }
 
+function reset() {
+    if (overlay.className = "win") {
+        startButton.textContent = "Reset";
+        startButton.addEventListener("click", function () {
+            missed = 0;
+            
+        })
+    }
+}
