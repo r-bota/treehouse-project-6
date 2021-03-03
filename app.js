@@ -4,11 +4,11 @@ var missed = 0;
 var hearts = document.querySelectorAll(".tries img");
 
 
-
 //start button to hide overlay
 overlay = document.getElementById("overlay");
 startButton = document.querySelector(".btn__reset");
 startButton.addEventListener("click", () => { overlay.style.display = "none" });
+
 
 //phrases for players to guess
 const phrases = ["first", "second", "third", "fourth", "fifth"];
@@ -33,6 +33,9 @@ function addPhraseToDisplay(arr) {
     }
 };
 
+addPhraseToDisplay(phraseArray);
+
+
 
 const keyboard = document.querySelectorAll(".keyrow button");
 for (let i = 0; i < keyboard.length; i++) {
@@ -41,6 +44,7 @@ for (let i = 0; i < keyboard.length; i++) {
         keyboard[i].disabled = "true";
         btn = keyboard[i].textContent;
         checkLetter(btn);
+        checkWin()
         if (checkLetter(btn) !== btn) {
             missed += 1;
             hearts[missed - 1].src = "images/lostHeart.png";
@@ -61,5 +65,13 @@ function checkLetter(btn) {
     return match;
 }
 
+function checkWin() {
+    var liLetter = document.getElementsByClassName("letter");
+    var liShow = document.getElementsByClassName("show");
+    if (liLetter.length === liShow.length) {
+        overlay.className = "win";
+        overlay.style.display = "flex";
+        console.log("Fuck")
+    }
+}
 
-addPhraseToDisplay(phraseArray);
