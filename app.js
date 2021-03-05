@@ -121,18 +121,4 @@ function reset() {
 }
 
 
-// function reset() {
-//     if (overlay.className === "lose") {
-//         startButton.textContent = "Reset";
-//         startButton.addEventListener("click", function () {
 
-//             for (let i = 0; i < hearts.length; i++) {
-//                 hearts[i].src = "images/liveHeart.png"
-//             }
-//             for (let i = 0; i < keyboard.length; i++) {
-//                 keyboard[i].classList.remove("chosen");
-
-//             }
-//         })
-//     }  listen()
-// }
