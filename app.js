@@ -3,7 +3,7 @@ var phrase = document.getElementById("phrase");
 var missed = 0;
 var hearts = document.querySelectorAll(".tries img");
 var keyboard = document.querySelectorAll(".keyrow button");
-var letterChecker = document.querySelectorAll(".letter") + document.querySelectorAll(".space");
+var letterChecker = phrase.firstElementChild.children;
 var winN = null
 
 //start button to hide overlay and reset gameboard
@@ -40,7 +40,7 @@ function addPhraseToDisplay(arr) {
             li.className = "letter";
         }
         li.appendChild(letters);
-        phrase.appendChild(li);
+        phrase.firstElementChild.appendChild(li);
     }
 };
 
