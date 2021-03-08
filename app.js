@@ -70,7 +70,7 @@ function listen() {
 
 }
 
-//takes the textvalue of the selected button and compares it to the phrase. If it matches it adds the .show class to the matching letter.
+//takes the textvalue of the selected button and compares it to the phrase. If it matches it adds the .show class to the matching letter element.
 //always returns the value of the selected button
 function checkLetter(btn) {
     const letters = document.getElementsByClassName("letter");
