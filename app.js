@@ -6,14 +6,12 @@ var keyboard = document.querySelectorAll(".keyrow button");
 var ul = document.querySelector("#phrase ul")
 var winN = null
 
-   const resetbtn = document.createElement("button");
-    resetbtn.className = "reset";
-    resetbtn.textContent = "Reset"
 //start button to hide overlay and reset gameboard
 overlay = document.getElementById("overlay");
 startButton = document.querySelector(".btn__reset");
 startButton.addEventListener("click", function () {
     overlay.style.display = "none"
+    removePhrase()
     reset()
     listen()
 });
@@ -29,7 +27,7 @@ function getRandomPhraseAsArray(arr) {
     return phraseArray;
 }
 
-var phraseArray = getRandomPhraseAsArray(phrases);
+// var phraseArray = getRandomPhraseAsArray(phrases);
 
 //function to add the letters to the game screen
 function addPhraseToDisplay(arr) {
@@ -47,10 +45,12 @@ function addPhraseToDisplay(arr) {
     }
 };
 
-addPhraseToDisplay(phraseArray);
+// addPhraseToDisplay(phraseArray);
 
 
 function listen() {
+    var phraseArray = getRandomPhraseAsArray(phrases);
+    addPhraseToDisplay(phraseArray);
     for (let i = 0; i < keyboard.length; i++) {
         keyboard[i].addEventListener("click", function () {
             keyboard[i].className = "chosen";
@@ -64,9 +64,9 @@ function listen() {
             checkWin()
         });
         if (winN) {
-            return 
+            return
         } else if (winN === false) {
-            return 
+            return
         }
     }
 
@@ -101,16 +101,14 @@ function checkWin() {
 function win() {
     overlay.className = "win";
     overlay.style.display = "flex";
-    startButton.textContent = "Reset";
     winN = true;
 }
 
 function lose() {
     overlay.className = "lose";
     overlay.style.display = "flex";
-    overlay.appendChild(resetbtn)
     winN = false;
-    console.log("hello??");
+
 }
 
 function reset() {
@@ -122,15 +120,15 @@ function reset() {
         keyboard[i].classList.remove("chosen");
         keyboard[i].disabled = false;
     }
- 
+
+
 }
 
-resetbtn.addEventListener("click", function() {
+function removePhrase() {
     while (ul.firstChild) {
-		ul.removeChild(ul.firstChild);
-	}
-    overlay.style.display = "none"
-})
-  
+        ul.removeChild(ul.firstChild);
+    }
+}
+
 
 
