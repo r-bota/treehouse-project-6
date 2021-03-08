@@ -3,9 +3,12 @@ var phrase = document.getElementById("phrase");
 var missed = 0;
 var hearts = document.querySelectorAll(".tries img");
 var keyboard = document.querySelectorAll(".keyrow button");
-var letterChecker = phrase.firstElementChild.children;
+var ul = document.querySelector("#phrase ul")
 var winN = null
 
+   const resetbtn = document.createElement("button");
+    resetbtn.className = "reset";
+    resetbtn.textContent = "Reset"
 //start button to hide overlay and reset gameboard
 overlay = document.getElementById("overlay");
 startButton = document.querySelector(".btn__reset");
@@ -61,9 +64,9 @@ function listen() {
             checkWin()
         });
         if (winN) {
-            return (console.log("test"))
+            return 
         } else if (winN === false) {
-            return (console.log("test20"))
+            return 
         }
     }
 
@@ -87,11 +90,11 @@ function checkWin() {
     var liShow = document.getElementsByClassName("show");
     if (liLetter.length === liShow.length) {
         win()
-        
+
     }
     if (missed === 5) {
         lose()
-        
+
     }
 }
 
@@ -105,8 +108,9 @@ function win() {
 function lose() {
     overlay.className = "lose";
     overlay.style.display = "flex";
-    startButton.textContent = "Reset";
+    overlay.appendChild(resetbtn)
     winN = false;
+    console.log("hello??");
 }
 
 function reset() {
@@ -118,7 +122,15 @@ function reset() {
         keyboard[i].classList.remove("chosen");
         keyboard[i].disabled = false;
     }
+ 
 }
 
+resetbtn.addEventListener("click", function() {
+    while (ul.firstChild) {
+		ul.removeChild(ul.firstChild);
+	}
+    overlay.style.display = "none"
+})
+  
 
 
