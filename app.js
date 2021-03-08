@@ -18,7 +18,7 @@ startButton.addEventListener("click", function () {
 
 
 //phrases for players to guess
-const phrases = ["first", "se co nd", "third", "fourth", "fifth one"];
+const phrases = ["starry night", "mona lisa", "interchange", "school of athens", "the great wave"];
 
 //this function forms an array in "phraseLetters" from the letters of a string randomly selected from the array passed in as arr
 function getRandomPhraseAsArray(arr) {
@@ -122,7 +122,6 @@ function reset() {
     }
 }
 
-
 //a function that loops to remove all the children of the ul containing the letters
 function removePhrase() {
     while (ul.firstChild) {
@@ -130,5 +129,5 @@ function removePhrase() {
     }
 }
 
-
+ 
 
